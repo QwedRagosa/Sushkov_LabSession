@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1b5dfc56af0f4f8aaaaddbb2a270b715" Name="Diagram1">
+        <EntityTypeShape EntityType="LabDataBase.Analyzer" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabDataBase.Bill" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabDataBase.Blood" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabDataBase.InsuranceComp" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabDataBase.LabService" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabDataBase.Order" Width="1.5" PointX="9.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabDataBase.OrderedService" Width="1.5" PointX="7.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabDataBase.Patient" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabDataBase.Role" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabDataBase.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabDataBase.Users" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
+        <AssociationConnector Association="LabDataBase.FK_OrderedService_Analyzer" ManuallyRouted="false" />
+        <AssociationConnector Association="LabDataBase.FK_Bill_InsuranceComp" ManuallyRouted="false" />
+        <AssociationConnector Association="LabDataBase.FK_Bill_OrderedService" ManuallyRouted="false" />
+        <AssociationConnector Association="LabDataBase.FK_Bill_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="LabDataBase.FK_Blood_Patient" ManuallyRouted="false" />
+        <AssociationConnector Association="LabDataBase.FK_OrderedService_Blood" ManuallyRouted="false" />
+        <AssociationConnector Association="LabDataBase.FK_Patient_InsuranceComp" ManuallyRouted="false" />
+        <AssociationConnector Association="LabDataBase.FK_OrderedService_LabService1" ManuallyRouted="false" />
+        <AssociationConnector Association="LabDataBase.FK_Order_OrderedService" ManuallyRouted="false" />
+        <AssociationConnector Association="LabDataBase.FK_OrderedService_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="LabDataBase.FK_Users_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

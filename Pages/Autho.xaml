@@ -1,0 +1,22 @@
+﻿<Page x:Class="Sushkov_LabSession.Pages.Autho"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sushkov_LabSession.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="Autho">
+
+    <Grid>
+        <Button Name="LastEnterBtn" Content="История подключений" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="270" Height="260" Margin="0,20,0,0">
+            <TextBlock Text="Логин:" HorizontalAlignment="Left" Margin="0,20,0,-10"/>
+            <TextBox Name="LoginTbx"/>
+            <TextBlock Text="Пароль:" HorizontalAlignment="Left" Margin="0,20,0,-10"/>
+            <PasswordBox Name="PasswordTbx"/>
+            <Button Name="EnterBtn" Content="Войти" Margin="0,30,0,0" Width="230" Click="EnterBtn_Click"/>
+        </StackPanel>
+        <Button Name="ExitBtn" Content="Закрыть" Width="200" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="30" Click="ExitBtn_Click"/>
+    </Grid>
+</Page>

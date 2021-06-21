@@ -1,0 +1,34 @@
+﻿<Page x:Class="Sushkov_LabSession.Pages.Laborant"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sushkov_LabSession.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="Laborant">
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" Width="400" Height="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,50">
+            <Image Source="laborant_1.jpeg" Width="200" VerticalAlignment="Top" Margin="0,20">
+                <Image.Effect>
+                    <DropShadowEffect Direction="180" BlurRadius="14" Color="#FF2C8037" Opacity="0.5"/>
+                </Image.Effect>
+            </Image>
+            <StackPanel Width="200" Height="300" VerticalAlignment="Top">
+                <TextBlock Text="Полное имя:" VerticalAlignment="Top" Margin="15,20,0,0" FontWeight="Bold" Foreground="#22632A"/>
+                <TextBlock Name="NameTbl" Text="Имя Фамилия" VerticalAlignment="Top" Margin="25,0,0,0" TextDecorations="Underline" FontStyle="Italic"/>
+                <TextBlock Text="Должность:" VerticalAlignment="Top" Margin="15,20,0,0" FontWeight="Bold" Foreground="#22632A"/>
+                <TextBlock Name="RoleTbl" Text="Название роли" VerticalAlignment="Top" Margin="25,0,0,0" TextDecorations="Underline" FontStyle="Italic"/>
+                <TextBlock Text="IP-Адрес:" VerticalAlignment="Top" Margin="15,20,0,0" FontWeight="Bold" Foreground="#22632A"/>
+                <TextBlock Name="IPTbl" Text="127.0.0.1" VerticalAlignment="Top" Margin="25,0,0,0" TextDecorations="Underline" FontStyle="Italic"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Height="260" Width="300" Margin="75,200" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Button Name="LastEnterBtn" Content="История подключений" Margin="0,0,0,30"/>
+            <Button Name="GetBioBtn" Content="Принять биоматериал" Margin="0,0,0,15"/>
+            <Button Name="MakeReportBtn" Content="Сформировать отчёт" Margin="0,0,0,15"/>
+        </StackPanel>
+        <Button Name="ExitBtn" Content="Выйти" Width="200" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="30" Click="ExitBtn_Click"/>
+    </Grid>
+</Page>
