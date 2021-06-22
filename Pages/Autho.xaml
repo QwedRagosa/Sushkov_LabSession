@@ -9,7 +9,7 @@
       Title="Autho">
 
     <Grid>
-        <Button Name="LastEnterBtn" Content="История подключений" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30"/>
+        <Button Name="LastEnterBtn" Content="История подключений" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30" Click="LastEnterBtn_Click"/>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="270" Height="260" Margin="0,20,0,0">
             <TextBlock Text="Логин:" HorizontalAlignment="Left" Margin="0,20,0,-10"/>
             <TextBox Name="LoginTbx"/>

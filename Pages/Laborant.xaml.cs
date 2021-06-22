@@ -35,5 +35,11 @@ namespace Sushkov_LabSession.Pages
         {
             PagesData.pageframe.Navigate(new Autho()); // Выход на окно авторизации
         }
+
+        private void LastEnterBtn_Click(object sender, RoutedEventArgs e)
+        {
+            LastEnter LastEnter = new LastEnter();
+            LastEnter.Show();
+        }
     }
 }

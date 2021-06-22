@@ -35,16 +35,21 @@ namespace Sushkov_LabSession.Pages
                 //Проверка ID роли у входящего пользователя.
                 if (VarUsersLoginPass.RoleID == 1) // 1 = Лаборант
                 {
-                    MessageBox.Show("Добро пожаловать в систему, " + VarUsersLoginPass.Name + "!\nВы: " + VarUsersLoginPass.Role.Name, "Успешный вход ЛАБОРАНТА!");
+                    VarUsersLoginPass.LastEnter = DateTime.Now;
+                    DataBase.DB.SaveChanges();
                     PagesData.pageframe.Navigate(new Laborant(VarUsersLoginPass.ID)); // Переход на страницу лаборанта с передачей ИД пользователя.
                 }
                 else if (VarUsersLoginPass.RoleID == 2) // 2 = Лаборант-исследователь
                 {
-                    MessageBox.Show("Добро пожаловать в систему, " + VarUsersLoginPass.Name + "!\nВы: " + VarUsersLoginPass.Role.Name, "Успешный вход ЛАБОРАНТА-ИССЛЕДОВАТЕЛЯ!");
+                    VarUsersLoginPass.LastEnter = DateTime.Now;
+                    DataBase.DB.SaveChanges();
+                    PagesData.pageframe.Navigate(new Laborant_Researcher(VarUsersLoginPass.ID)); // Переход на страницу лаборанта-исследователя с передачей ИД пользователя.
                 }
                 else if (VarUsersLoginPass.RoleID == 3) // 3 = Бухгалтер
                 {
-                    MessageBox.Show("Добро пожаловать в систему, " + VarUsersLoginPass.Name + "!\nВы: " + VarUsersLoginPass.Role.Name, "Успешный вход БУХГАЛТЕРА!");
+                    VarUsersLoginPass.LastEnter = DateTime.Now;
+                    DataBase.DB.SaveChanges();
+                    PagesData.pageframe.Navigate(new Accountant(VarUsersLoginPass.ID)); // Переход на страницу бухгалтера с передачей ИД пользователя.
                 }
                 else
                 {
@@ -60,6 +65,12 @@ namespace Sushkov_LabSession.Pages
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void LastEnterBtn_Click(object sender, RoutedEventArgs e)
+        {
+            LastEnter LastEnter = new LastEnter();
+            LastEnter.Show();
         }
     }
 }

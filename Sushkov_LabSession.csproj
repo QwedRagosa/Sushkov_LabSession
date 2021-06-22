@@ -110,6 +110,10 @@
     <Compile Include="LabDB\Users.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Page Include="LastEnter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -127,6 +131,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="LastEnter.xaml.cs">
+      <DependentUpon>LastEnter.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -148,10 +155,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\LastEnter.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\Accountant.xaml.cs">
@@ -165,9 +168,6 @@
     </Compile>
     <Compile Include="Pages\Laborant_Researcher.xaml.cs">
       <DependentUpon>Laborant_Researcher.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\LastEnter.xaml.cs">
-      <DependentUpon>LastEnter.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -213,6 +213,8 @@
       <DependentUpon>DB.edmx</DependentUpon>
       <LastGenOutput>DB.cs</LastGenOutput>
     </Content>
+    <Resource Include="Pages\accountant.jpeg" />
+    <Resource Include="Pages\laborant_2.png" />
     <Resource Include="Pages\laborant_1.jpeg" />
     <Resource Include="logo.png" />
     <Resource Include="logo.ico" />
