@@ -25,12 +25,12 @@ namespace Sushkov_LabSession.Pages
         public Laborant(int UserID) //Переданный ID залогинившегося пользователя
         {
             InitializeComponent();
+            int UserIDSent = UserID;
             // Выводим в Textblocks информацию о пользователе
             NameTbl.Text = DataBase.DB.Users.FirstOrDefault(x => x.ID == UserID).Name;
             RoleTbl.Text = DataBase.DB.Users.FirstOrDefault(x => x.ID == UserID).Role.Name;
             IPTbl.Text = DataBase.DB.Users.FirstOrDefault(x => x.ID == UserID).IP;
         }
-
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
         {
             PagesData.pageframe.Navigate(new Autho()); // Выход на окно авторизации
@@ -40,6 +40,12 @@ namespace Sushkov_LabSession.Pages
         {
             LastEnter LastEnter = new LastEnter();
             LastEnter.Show();
+        }
+
+        private void GetBioBtn_Click(object sender, RoutedEventArgs e)
+        {
+            TakeBio TakeBio = new TakeBio(AuthoID.AuthoIDInt);
+            TakeBio.Show();
         }
     }
 }

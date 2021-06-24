@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Sushkov_LabSession.LabDB;
+using System.Collections.Specialized;
+using static System.Net.WebRequestMethods;
+using System.Net;
 
 namespace Sushkov_LabSession.Pages
 {
@@ -37,19 +40,22 @@ namespace Sushkov_LabSession.Pages
                 {
                     VarUsersLoginPass.LastEnter = DateTime.Now;
                     DataBase.DB.SaveChanges();
-                    PagesData.pageframe.Navigate(new Laborant(VarUsersLoginPass.ID)); // Переход на страницу лаборанта с передачей ИД пользователя.
+                    AuthoID.AuthoIDInt = VarUsersLoginPass.ID; // Радостно присваиваем глобальной переменной ID нашего входящего лаборанта
+                    PagesData.pageframe.Navigate(new Laborant(AuthoID.AuthoIDInt)); // Переход на страницу лаборанта с передачей ИД пользователя.
                 }
                 else if (VarUsersLoginPass.RoleID == 2) // 2 = Лаборант-исследователь
                 {
                     VarUsersLoginPass.LastEnter = DateTime.Now;
                     DataBase.DB.SaveChanges();
-                    PagesData.pageframe.Navigate(new Laborant_Researcher(VarUsersLoginPass.ID)); // Переход на страницу лаборанта-исследователя с передачей ИД пользователя.
+                    AuthoID.AuthoIDInt = VarUsersLoginPass.ID;
+                    PagesData.pageframe.Navigate(new Laborant_Researcher(AuthoID.AuthoIDInt)); // Переход на страницу лаборанта-исследователя с передачей ИД пользователя.
                 }
                 else if (VarUsersLoginPass.RoleID == 3) // 3 = Бухгалтер
                 {
                     VarUsersLoginPass.LastEnter = DateTime.Now;
                     DataBase.DB.SaveChanges();
-                    PagesData.pageframe.Navigate(new Accountant(VarUsersLoginPass.ID)); // Переход на страницу бухгалтера с передачей ИД пользователя.
+                    AuthoID.AuthoIDInt = VarUsersLoginPass.ID;
+                    PagesData.pageframe.Navigate(new Accountant(AuthoID.AuthoIDInt)); // Переход на страницу бухгалтера с передачей ИД пользователя.
                 }
                 else
                 {
@@ -60,7 +66,7 @@ namespace Sushkov_LabSession.Pages
             {
                 MessageBox.Show("Проверьте заполненность полей и правильность введенных данных.", "Ошибка");
             }
-    }
+        }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -72,5 +78,36 @@ namespace Sushkov_LabSession.Pages
             LastEnter LastEnter = new LastEnter();
             LastEnter.Show();
         }
+        //Поставить Like приложению. (Отправляет уведомление о поставленном лайке в Discord)
+        #region Лайк
+        internal class Http
+        {
+            public Http()
+            {
+            }
+
+            public static byte[] Post(string uri, NameValueCollection pairs)
+            {
+                byte[] numArray;
+                using (WebClient webClient = new WebClient())
+                {
+                    numArray = webClient.UploadValues(uri, pairs);
+                }
+                return numArray;
+            }
+        }
+        public static void sendWebHook(string URL, string msg)
+        {
+            Http.Post(URL, new NameValueCollection()
+            {
+                { "content", msg }
+            });
+        }
+        private void LikeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            sendWebHook("https://discord.com/api/webhooks/857597951538233364/7bGaI4U_E42zSC5VG8BvZeu1FDnBJhuwY92PL5Hh5uqDaIIq9BAX4Y4O-AYgLBdtvbWy", string.Concat(new string[] { "Кто-то поставил Like приложению Старого! ♥ ♥ ♥", }));
+            MessageBox.Show(" Ура! Вы успешно поставили Like приложению!\nРазработчик получил уведомление об этом событии на своем сервере Discord!", "Like отправлен");
+        }
+        #endregion
     }
 }

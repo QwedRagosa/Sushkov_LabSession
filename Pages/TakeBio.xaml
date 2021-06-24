@@ -1,0 +1,50 @@
+﻿<Window x:Class="Sushkov_LabSession.Pages.TakeBio"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sushkov_LabSession.Pages"
+        mc:Ignorable="d"
+        Title="Order Formation" Height="600" Width="800">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="#FF76DE83"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Frame Name="Sushkov_LabSession_LaborantTakeBio" NavigationUIVisibility="Hidden" Margin="0,0,-0.4,0.4" Grid.RowSpan="2"/>
+        <StackPanel Height="20" VerticalAlignment="Bottom">
+            <TextBlock Text="© ООО «Компания Laboratory Services inc.»" FontStyle="Italic" FontWeight="ExtraLight" Foreground="White" FontSize="14" TextAlignment="Center" Height="30" Background="#498C51"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Width="450" Height="350" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Height="30">
+                <TextBlock Text="Лаборант:" Width="200"/>
+                <TextBlock Name="UserNameTbl" Text="FirstName LastName" Width="200" Background="White"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="40" Margin="0,20,0,0">
+                <TextBlock Text="Пациент:" Width="200"/>
+                <ComboBox Name="PatientCbx" Width="200"/>
+                <Button Name="AddPatientBtn" Content="+" Height="30" Width="30" Padding="0" Margin="10,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="40">
+                <TextBlock Text="Код пробирки:" Width="200"/>
+                <TextBox Name="BarCodeTbx" Text="" Width="200" MaxLength="7"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="40" Margin="0,20,0,0">
+                <TextBlock Text="Анализатор:" Width="200"/>
+                <ComboBox Name="AnalyzerCbx" Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="40">
+                <TextBlock Text="Услуга:" Width="200"/>
+                <ComboBox Name="ServiceCbx" Width="200"/>
+            </StackPanel>
+            
+        </StackPanel>
+        <StackPanel Width="500" Height="40" Margin="30" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <Button Name="AcceptBtn" Content="Принять" Width="200" HorizontalAlignment="Center" Margin="0,0,50,0" Click="AcceptBtn_Click"/>
+            <Button Name="ExitBtn" Content="Закрыть" Width="200" HorizontalAlignment="Center" Margin="50,0,0,0" Click="ExitBtn_Click"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>

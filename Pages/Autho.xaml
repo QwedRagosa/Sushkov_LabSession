@@ -18,5 +18,6 @@
             <Button Name="EnterBtn" Content="Войти" Margin="0,30,0,0" Width="230" Click="EnterBtn_Click"/>
         </StackPanel>
         <Button Name="ExitBtn" Content="Закрыть" Width="200" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="30" Click="ExitBtn_Click"/>
+        <Button Name="LikeBtn" Content="♥ Like" Width="85" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,30" Background="Transparent" Foreground="IndianRed" Click="LikeBtn_Click"/>
     </Grid>
 </Page>
