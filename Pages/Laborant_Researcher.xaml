@@ -10,7 +10,7 @@
 
     <Grid>
         <StackPanel Orientation="Horizontal" Width="575" Height="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,50">
-            <Image Source="laborant_2.png" Width="200" VerticalAlignment="Top" Margin="0,20">
+            <Image Source="/Sushkov_LabSession;component/Images/laborant_2.png" Width="200" VerticalAlignment="Top" Margin="0,20">
                 <Image.Effect>
                     <DropShadowEffect Direction="180" BlurRadius="14" Color="#FF2C8037" Opacity="0.5"/>
                 </Image.Effect>

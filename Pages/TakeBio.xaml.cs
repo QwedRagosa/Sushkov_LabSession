@@ -56,6 +56,15 @@ namespace Sushkov_LabSession.Pages
             };
             DataBase.DB.OrderedService.Add(OrderedService);
             DataBase.DB.SaveChanges();
+
+            Order Order = new Order()
+            {
+                OrderedServiceID = DataBase.DB.OrderedService.FirstOrDefault(x => x.ID == OrderedService.ID).ID,
+                Accepted = true,
+                Finished = false,
+            };
+            DataBase.DB.Order.Add(Order);
+            DataBase.DB.SaveChanges();
             MessageBox.Show("Биоматериал принят.\nЗаказ сформирован успешно.", "Успех!");
         }
     }

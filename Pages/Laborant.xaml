@@ -10,7 +10,7 @@
 
     <Grid>
         <StackPanel Orientation="Horizontal" Width="575" Height="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,50">
-            <Image Source="laborant_1.jpeg" Width="200" VerticalAlignment="Top" Margin="0,20">
+            <Image Source="/Sushkov_LabSession;component/Images/laborant_1.png" Width="200" VerticalAlignment="Top" Margin="0,20">
                 <Image.Effect>
                     <DropShadowEffect Direction="180" BlurRadius="14" Color="#FF2C8037" Opacity="0.5"/>
                 </Image.Effect>
@@ -27,7 +27,7 @@
         <StackPanel Height="260" Width="300" Margin="75,0" HorizontalAlignment="Right" VerticalAlignment="Center">
             <Button Name="LastEnterBtn" Content="История подключений" Margin="0,0,0,30" Click="LastEnterBtn_Click"/>
             <Button Name="GetBioBtn" Content="Принять биоматериал" Margin="0,0,0,15" Click="GetBioBtn_Click"/>
-            <Button Name="MakeReportBtn" Content="Сформировать отчёт" Margin="0,0,0,15"/>
+            <Button Name="MakeReportBtn" Content="Сформировать отчёт" Margin="0,0,0,15" Click="MakeReportBtn_Click"/>
         </StackPanel>
         <Button Name="ExitBtn" Content="Выйти" Width="200" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="30" Click="ExitBtn_Click"/>
     </Grid>

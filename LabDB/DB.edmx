@@ -28,7 +28,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PatientID" Type="int" />
           <Property Name="Barcode" Type="nvarchar" MaxLength="50" />
-          <Property Name="Date" Type="date" />
+          <Property Name="Date" Type="datetime" />
         </EntityType>
         <EntityType Name="InsuranceComp">
           <Key>
@@ -67,7 +67,7 @@
           <Property Name="UserID" Type="int" />
           <Property Name="LabServiceID" Type="int" />
           <Property Name="BloodID" Type="int" />
-          <Property Name="FinDate" Type="date" />
+          <Property Name="FinDate" Type="datetime" />
           <Property Name="AnalyzerID" Type="int" />
         </EntityType>
         <EntityType Name="Patient">
@@ -366,7 +366,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PatientID" Type="Int32" />
           <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Patient" Relationship="Self.FK_Blood_Patient" FromRole="Blood" ToRole="Patient" />
           <NavigationProperty Name="OrderedService" Relationship="Self.FK_OrderedService_Blood" FromRole="Blood" ToRole="OrderedService" />
         </EntityType>
@@ -411,7 +411,7 @@
           <Property Name="UserID" Type="Int32" />
           <Property Name="LabServiceID" Type="Int32" />
           <Property Name="BloodID" Type="Int32" />
-          <Property Name="FinDate" Type="DateTime" Precision="0" />
+          <Property Name="FinDate" Type="DateTime" Precision="3" />
           <Property Name="AnalyzerID" Type="Int32" />
           <NavigationProperty Name="Analyzer" Relationship="Self.FK_OrderedService_Analyzer" FromRole="OrderedService" ToRole="Analyzer" />
           <NavigationProperty Name="Bill" Relationship="Self.FK_Bill_OrderedService" FromRole="OrderedService" ToRole="Bill" />

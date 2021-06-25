@@ -47,5 +47,11 @@ namespace Sushkov_LabSession.Pages
             TakeBio TakeBio = new TakeBio(AuthoID.AuthoIDInt);
             TakeBio.Show();
         }
+
+        private void MakeReportBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ShowOrder ShowOrder = new ShowOrder();
+            ShowOrder.Show();
+        }
     }
 }
