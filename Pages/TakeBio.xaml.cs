@@ -67,6 +67,17 @@ namespace Sushkov_LabSession.Pages
             DataBase.DB.SaveChanges();
             MessageBox.Show("Биоматериал принят.\nЗаказ сформирован успешно.", "Успех!");
         }
+
+        private void AddPatientBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AddUser AddUser = new AddUser();
+            AddUser.Show();
+        }
+
+        private void UpdatePatientBtn_Click(object sender, RoutedEventArgs e)
+        {
+            PatientCbx.ItemsSource = DataBase.DB.Patient.Select(x => x.FullName).OrderBy(x => x).ToList();
+        }
     }
 }
 

@@ -39,5 +39,22 @@ namespace Sushkov_LabSession.Pages
             LastEnter LastEnter = new LastEnter();
             LastEnter.Show();
         }
+
+        private void GetBioBtn_Click(object sender, RoutedEventArgs e)
+        {
+            TakeBio TakeBio = new TakeBio(AuthoID.AuthoIDInt);
+            TakeBio.Show();
+        }
+
+        private void MakeReportBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ShowOrder ShowOrder = new ShowOrder();
+            ShowOrder.Show();
+        }
+
+        private void AnalyzerWorkBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Вы работаете с анализатором.\nВжух-вжух!", "Удивительно!");
+        }
     }
 }

@@ -39,5 +39,11 @@ namespace Sushkov_LabSession.Pages
             LastEnter LastEnter = new LastEnter();
             LastEnter.Show();
         }
+
+        private void LookReportBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SeeOrder SeeOrder = new SeeOrder();
+            SeeOrder.Show();
+        }
     }
 }

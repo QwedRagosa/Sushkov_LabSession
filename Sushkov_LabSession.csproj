@@ -162,6 +162,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\SeeOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ShowOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,6 +190,9 @@
     </Compile>
     <Compile Include="Pages\Laborant_Researcher.xaml.cs">
       <DependentUpon>Laborant_Researcher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SeeOrder.xaml.cs">
+      <DependentUpon>SeeOrder.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ShowOrder.xaml.cs">
       <DependentUpon>ShowOrder.xaml</DependentUpon>
@@ -227,6 +234,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pages\logo.ico" />
     <Resource Include="Images\laborant_2.png" />
     <Resource Include="Images\logo.ico" />
     <Resource Include="Images\logo.png" />

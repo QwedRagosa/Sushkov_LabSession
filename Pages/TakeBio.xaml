@@ -23,9 +23,10 @@
                 <TextBlock Name="UserNameTbl" Text="FirstName LastName" Width="200" Background="White"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Height="40" Margin="0,20,0,0">
-                <TextBlock Text="Пациент:" Width="200"/>
+                <TextBlock Text="Пациент:" Width="150"/>
+                <Button Name="UpdatePatientBtn" Content="↻" Height="30" Width="30" Padding="0" Margin="10,5,10,0" VerticalAlignment="Top" Click="UpdatePatientBtn_Click"/>
                 <ComboBox Name="PatientCbx" Width="200"/>
-                <Button Name="AddPatientBtn" Content="+" Height="30" Width="30" Padding="0" Margin="10,0"/>
+                <Button Name="AddPatientBtn" Content="+" Height="30" Width="30" Padding="0" Margin="10,0" Click="AddPatientBtn_Click"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Height="40">
                 <TextBlock Text="Код пробирки:" Width="200"/>

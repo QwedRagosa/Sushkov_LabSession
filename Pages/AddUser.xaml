@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sushkov_LabSession.Pages"
         mc:Ignorable="d"
-        Title="Add User" Height="600" Width="450" Icon="/Sushkov_LabSession;component/Images/logo.ico">
+        Title="Add User" Height="700" Width="800" Icon="logo.ico">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="#FF76DE83"/>
@@ -13,6 +13,38 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
-        
+        <Frame Name="Sushkov_LabSession_LaborantTakeBio" NavigationUIVisibility="Hidden" Margin="0,0,-0.4,0.4" Grid.RowSpan="2"/>
+        <StackPanel Height="20" VerticalAlignment="Bottom">
+            <TextBlock Text="© ООО «Компания Laboratory Services inc.»" FontStyle="Italic" FontWeight="ExtraLight" Foreground="White" FontSize="14" TextAlignment="Center" Height="30" Background="#498C51"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Height="550" Width="275" Margin="375,0,0,75">
+            <TextBlock Text="Полное имя:" Width="250" Margin="0,0,0,-10"/>
+            <TextBox Name="FullNameTbx" Width="250" PreviewTextInput="FullNameTbx_PreviewTextInput"/>
+            <TextBlock Text="Дата рождения:" Width="250" Margin="0,0,0,-10"/>
+            <Calendar Name="BirthDayCld" Width="250" FontSize="10"/>
+            
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Height="550" Width="275" Margin="0,0,375,75">
+            <TextBlock Text="Логин:" Width="250" Margin="0,0,0,-10"/>
+            <TextBox Name="LoginTbx" Width="250"/>
+            <TextBlock Text="Пароль:" Width="250" Margin="0,0,0,-10"/>
+            <TextBox Name="PasswordTbx" Width="250"/>
+            <TextBlock Text="Email:" Width="250" Margin="0,20,0,-10"/>
+            <TextBox Name="EmailTbx" Width="250"/>
+            <TextBlock Text="Номер телефона:" Width="250" Margin="0,0,0,-10"/>
+            <TextBox Name="PhoneTbx" Width="250" PreviewTextInput="PhoneTbx_PreviewTextInput" MaxLength="25"/>
+            <TextBlock Text="Серия паспорта:" Width="250" Margin="0,20,0,-10"/>
+            <TextBox Name="PassportSerTbx" Width="250" PreviewTextInput="PassportSerTbx_PreviewTextInput" MaxLength="4"/>
+            <TextBlock Text="Номер паспорта:" Width="250" Margin="0,0,0,-10"/>
+            <TextBox Name="PassportNumTbx" Width="250" PreviewTextInput="PassportSerTbx_PreviewTextInput" MaxLength="6"/>
+            <TextBlock Text="Страховая компания:" Width="250" Margin="0,20,0,-10"/>
+            <ComboBox Name="InsuranceCbx" Width="250"/>
+            <TextBlock Text="Номер страховки:" Width="250" Margin="0,0,0,-10"/>
+            <TextBox Name="InsuranceTbx" Width="250" PreviewTextInput="PassportSerTbx_PreviewTextInput" MaxLength="8"/>
+        </StackPanel>
+        <StackPanel Width="500" Height="40" Margin="30" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <Button Name="AddBtn" Content="Добавить" Width="200" HorizontalAlignment="Center" Margin="0,0,50,0" Click="AddBtn_Click"/>
+            <Button Name="ExitBtn" Content="Закрыть" Width="200" HorizontalAlignment="Center" Margin="50,0,0,0" Click="ExitBtn_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

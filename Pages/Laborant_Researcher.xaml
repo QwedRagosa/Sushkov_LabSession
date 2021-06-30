@@ -26,9 +26,9 @@
         </StackPanel>
         <StackPanel Height="260" Width="300" Margin="75,0" HorizontalAlignment="Right" VerticalAlignment="Center">
             <Button Name="LastEnterBtn" Content="История подключений" Margin="0,0,0,30" Click="LastEnterBtn_Click"/>
-            <Button Name="GetBioBtn" Content="Принять биоматериал" Margin="0,0,0,15"/>
-            <Button Name="MakeReportBtn" Content="Сформировать отчёт" Margin="0,0,0,15"/>
-            <Button Name="AnalyzerWorkBtn" Content="Работать с анализатором" Margin="0,0,0,15"/>
+            <Button Name="GetBioBtn" Content="Принять биоматериал" Margin="0,0,0,15" Click="GetBioBtn_Click"/>
+            <Button Name="MakeReportBtn" Content="Сформировать отчёт" Margin="0,0,0,15" HorizontalAlignment="Left" Width="300" Click="MakeReportBtn_Click"/>
+            <Button Name="AnalyzerWorkBtn" Content="Работать с анализатором" Margin="0,0,0,15" Click="AnalyzerWorkBtn_Click"/>
         </StackPanel>
         <Button Name="ExitBtn" Content="Выйти" Width="200" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="30" Click="ExitBtn_Click"/>
     </Grid>
