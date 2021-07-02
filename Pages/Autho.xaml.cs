@@ -32,39 +32,47 @@ namespace Sushkov_LabSession.Pages
 
         private void EnterBtn_Click(object sender, RoutedEventArgs e)
         {
-            var VarUsersLoginPass = DataBase.DB.Users.FirstOrDefault(x => x.Login == LoginTbx.Text && x.Password == PasswordTbx.Password);
-            if (VarUsersLoginPass != null)
+            try
             {
-                //Проверка ID роли у входящего пользователя.
-                if (VarUsersLoginPass.RoleID == 1) // 1 = Лаборант
+                var VarUsersLoginPass = DataBase.DB.Users.FirstOrDefault(x => x.Login == LoginTbx.Text && x.Password == PasswordTbx.Password);
+                if (VarUsersLoginPass != null)
                 {
-                    VarUsersLoginPass.LastEnter = DateTime.Now;
-                    DataBase.DB.SaveChanges();
-                    AuthoID.AuthoIDInt = VarUsersLoginPass.ID; // Радостно присваиваем глобальной переменной ID нашего входящего лаборанта
-                    PagesData.pageframe.Navigate(new Laborant(AuthoID.AuthoIDInt)); // Переход на страницу лаборанта с передачей ИД пользователя.
-                }
-                else if (VarUsersLoginPass.RoleID == 2) // 2 = Лаборант-исследователь
-                {
-                    VarUsersLoginPass.LastEnter = DateTime.Now;
-                    DataBase.DB.SaveChanges();
-                    AuthoID.AuthoIDInt = VarUsersLoginPass.ID;
-                    PagesData.pageframe.Navigate(new Laborant_Researcher(AuthoID.AuthoIDInt)); // Переход на страницу лаборанта-исследователя с передачей ИД пользователя.
-                }
-                else if (VarUsersLoginPass.RoleID == 3) // 3 = Бухгалтер
-                {
-                    VarUsersLoginPass.LastEnter = DateTime.Now;
-                    DataBase.DB.SaveChanges();
-                    AuthoID.AuthoIDInt = VarUsersLoginPass.ID;
-                    PagesData.pageframe.Navigate(new Accountant(AuthoID.AuthoIDInt)); // Переход на страницу бухгалтера с передачей ИД пользователя.
+                    //Проверка ID роли у входящего пользователя.
+                    if (VarUsersLoginPass.RoleID == 1) // 1 = Лаборант
+                    {
+                        VarUsersLoginPass.LastEnter = DateTime.Now;
+                        DataBase.DB.SaveChanges();
+                        AuthoID.AuthoIDInt = VarUsersLoginPass.ID; // Радостно присваиваем глобальной переменной ID нашего входящего лаборанта
+                        PagesData.pageframe.Navigate(new Laborant(AuthoID.AuthoIDInt)); // Переход на страницу лаборанта с передачей ИД пользователя.
+                    }
+                    else if (VarUsersLoginPass.RoleID == 2) // 2 = Лаборант-исследователь
+                    {
+                        VarUsersLoginPass.LastEnter = DateTime.Now;
+                        DataBase.DB.SaveChanges();
+                        AuthoID.AuthoIDInt = VarUsersLoginPass.ID;
+                        PagesData.pageframe.Navigate(new Laborant_Researcher(AuthoID.AuthoIDInt)); // Переход на страницу лаборанта-исследователя с передачей ИД пользователя.
+                    }
+                    else if (VarUsersLoginPass.RoleID == 3) // 3 = Бухгалтер
+                    {
+                        VarUsersLoginPass.LastEnter = DateTime.Now;
+                        DataBase.DB.SaveChanges();
+                        AuthoID.AuthoIDInt = VarUsersLoginPass.ID;
+                        PagesData.pageframe.Navigate(new Accountant(AuthoID.AuthoIDInt)); // Переход на страницу бухгалтера с передачей ИД пользователя.
+                    }
+                    else
+                    {
+                        MessageBox.Show("??????\nВозможна ошибка базы данных. Обратитесь к разработчику и накажите его.", "??????");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("??????\nВозможна ошибка базы данных. Обратитесь к разработчику и накажите его.", "??????");
+                    MessageBox.Show("Проверьте заполненность полей и правильность введенных данных.", "Ошибка");
                 }
+
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Проверьте заполненность полей и правильность введенных данных.", "Ошибка");
+                MessageBox.Show(ex.Message, "Ошибка!");
             }
         }
 

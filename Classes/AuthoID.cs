@@ -8,6 +8,6 @@ namespace Sushkov_LabSession.Classes
 {
     public static class AuthoID
     {
-        public static int AuthoIDInt { get; set; }
+        public static int AuthoIDInt { get; set; } //Сохранение ID авторизировавшегося пользователя
     }
 }

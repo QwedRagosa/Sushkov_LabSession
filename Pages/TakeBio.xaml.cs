@@ -37,35 +37,42 @@ namespace Sushkov_LabSession.Pages
 
         private void AcceptBtn_Click(object sender, RoutedEventArgs e)
         {
-            Blood Blood = new Blood()
+            try
             {
-                PatientID = DataBase.DB.Patient.FirstOrDefault(x => x.FullName == PatientCbx.SelectedItem.ToString()).ID,
-                Barcode = BarCodeTbx.Text,
-                Date = DateTime.Now,
-            };
-            DataBase.DB.Blood.Add(Blood);
-            DataBase.DB.SaveChanges();
+                Blood Blood = new Blood()
+                {
+                    PatientID = DataBase.DB.Patient.FirstOrDefault(x => x.FullName == PatientCbx.SelectedItem.ToString()).ID,
+                    Barcode = BarCodeTbx.Text,
+                    Date = DateTime.Now,
+                };
+                DataBase.DB.Blood.Add(Blood);
+                DataBase.DB.SaveChanges();
 
-            OrderedService OrderedService = new OrderedService()
-            {
-                UserID = AuthoID.AuthoIDInt,
-                LabServiceID = DataBase.DB.LabService.FirstOrDefault(x => x.Name == ServiceCbx.SelectedItem.ToString()).Code,
-                BloodID = DataBase.DB.Blood.FirstOrDefault(x => x.Barcode == BarCodeTbx.Text).ID,
-                FinDate = DateTime.Now,
-                AnalyzerID = DataBase.DB.Analyzer.FirstOrDefault(x => x.Name == AnalyzerCbx.SelectedItem.ToString()).ID,
-            };
-            DataBase.DB.OrderedService.Add(OrderedService);
-            DataBase.DB.SaveChanges();
+                OrderedService OrderedService = new OrderedService()
+                {
+                    UserID = AuthoID.AuthoIDInt,
+                    LabServiceID = DataBase.DB.LabService.FirstOrDefault(x => x.Name == ServiceCbx.SelectedItem.ToString()).Code,
+                    BloodID = DataBase.DB.Blood.FirstOrDefault(x => x.Barcode == BarCodeTbx.Text).ID,
+                    FinDate = DateTime.Now,
+                    AnalyzerID = DataBase.DB.Analyzer.FirstOrDefault(x => x.Name == AnalyzerCbx.SelectedItem.ToString()).ID,
+                };
+                DataBase.DB.OrderedService.Add(OrderedService);
+                DataBase.DB.SaveChanges();
 
-            Order Order = new Order()
+                Order Order = new Order()
+                {
+                    OrderedServiceID = DataBase.DB.OrderedService.FirstOrDefault(x => x.ID == OrderedService.ID).ID,
+                    Accepted = true,
+                    Finished = false,
+                };
+                DataBase.DB.Order.Add(Order);
+                DataBase.DB.SaveChanges();
+                MessageBox.Show("Биоматериал принят.\nЗаказ сформирован успешно.", "Успех!");
+            }
+            catch (Exception ex)
             {
-                OrderedServiceID = DataBase.DB.OrderedService.FirstOrDefault(x => x.ID == OrderedService.ID).ID,
-                Accepted = true,
-                Finished = false,
-            };
-            DataBase.DB.Order.Add(Order);
-            DataBase.DB.SaveChanges();
-            MessageBox.Show("Биоматериал принят.\nЗаказ сформирован успешно.", "Успех!");
+                MessageBox.Show(ex.Message, "Ошибка!");
+            }
         }
 
         private void AddPatientBtn_Click(object sender, RoutedEventArgs e)

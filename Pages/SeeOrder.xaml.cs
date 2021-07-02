@@ -33,18 +33,25 @@ namespace Sushkov_LabSession.Pages
 
         private void BillBtn_Click(object sender, RoutedEventArgs e)
         {
-            dynamic row = OrderList.SelectedItem;
-            int BillID = row.ID;
-            var BillProcess = DataBase.DB.Order.FirstOrDefault(x => x.ID == BillID);
-            Bill Bill = new Bill
+            try
             {
-                UserID = AuthoID.AuthoIDInt,
-                OrderedServiceID = BillProcess.OrderedService.ID,
-                InsuranceCompID = BillProcess.OrderedService.Blood.Patient.InsuranceComp.ID
-            };
-            DataBase.DB.Bill.Add(Bill);
-            DataBase.DB.SaveChanges();
-            MessageBox.Show("Счёт успешно выставлен.\n\nСтраховая компания: <" + BillProcess.OrderedService.Blood.Patient.InsuranceComp.Name + ">\nОказанная услуга: [" + BillProcess.OrderedService.LabService.Name + "]\nДля пациента: <" + BillProcess.OrderedService.Blood.Patient.FullName + ">\n\n Итоговая сумма = " + BillProcess.OrderedService.LabService.Cost + " $", "Успех!");
+                dynamic row = OrderList.SelectedItem;
+                int BillID = row.ID;
+                var BillProcess = DataBase.DB.Order.FirstOrDefault(x => x.ID == BillID);
+                Bill Bill = new Bill
+                {
+                    UserID = AuthoID.AuthoIDInt,
+                    OrderedServiceID = BillProcess.OrderedService.ID,
+                    InsuranceCompID = BillProcess.OrderedService.Blood.Patient.InsuranceComp.ID
+                };
+                DataBase.DB.Bill.Add(Bill);
+                DataBase.DB.SaveChanges();
+                MessageBox.Show("Счёт успешно выставлен.\n\nСтраховая компания: <" + BillProcess.OrderedService.Blood.Patient.InsuranceComp.Name + ">\nОказанная услуга: [" + BillProcess.OrderedService.LabService.Name + "]\nДля пациента: <" + BillProcess.OrderedService.Blood.Patient.FullName + ">\n\n Итоговая сумма = " + BillProcess.OrderedService.LabService.Cost + " $", "Успех!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!");
+            }
         }
     }
 }

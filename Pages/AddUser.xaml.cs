@@ -30,28 +30,35 @@ namespace Sushkov_LabSession.Pages
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (FullNameTbx.Text != null && LoginTbx.Text != null && PasswordTbx.Text != null && BirthDayCld.SelectedDate != null && PassportSerTbx.Text != null && PassportNumTbx != null && PhoneTbx.Text != null && EmailTbx.Text != null && InsuranceCbx.SelectedItem != null && InsuranceTbx.Text != null)
+            try
             {
-                Patient Patient = new Patient
+                if (FullNameTbx.Text != null && LoginTbx.Text != null && PasswordTbx.Text != null && BirthDayCld.SelectedDate != null && PassportSerTbx.Text != null && PassportNumTbx != null && PhoneTbx.Text != null && EmailTbx.Text != null && InsuranceCbx.SelectedItem != null && InsuranceTbx.Text != null)
                 {
-                    Login = LoginTbx.Text,
-                    Password = PasswordTbx.Text,
-                    FullName = FullNameTbx.Text,
-                    Burthday = BirthDayCld.SelectedDate,
-                    PassportS = PassportSerTbx.Text,
-                    PassportN = PassportNumTbx.Text,
-                    Phone = PhoneTbx.Text,
-                    Email = EmailTbx.Text,
-                    InsuranceID = DataBase.DB.InsuranceComp.FirstOrDefault(x => x.Name == InsuranceCbx.SelectedItem.ToString()).ID,
-                    InsuranceNumb = InsuranceTbx.Text,
-                };
-                DataBase.DB.Patient.Add(Patient);
-                DataBase.DB.SaveChanges();
-                MessageBox.Show("Пользователь успешно добавлен.\nНе забудьте нажать клавишу |↻| чтобы обновить список.", "Успех!");
+                    Patient Patient = new Patient
+                    {
+                        Login = LoginTbx.Text,
+                        Password = PasswordTbx.Text,
+                        FullName = FullNameTbx.Text,
+                        Burthday = BirthDayCld.SelectedDate,
+                        PassportS = PassportSerTbx.Text,
+                        PassportN = PassportNumTbx.Text,
+                        Phone = PhoneTbx.Text,
+                        Email = EmailTbx.Text,
+                        InsuranceID = DataBase.DB.InsuranceComp.FirstOrDefault(x => x.Name == InsuranceCbx.SelectedItem.ToString()).ID,
+                        InsuranceNumb = InsuranceTbx.Text,
+                    };
+                    DataBase.DB.Patient.Add(Patient);
+                    DataBase.DB.SaveChanges();
+                    MessageBox.Show("Пользователь успешно добавлен.\nНе забудьте нажать клавишу |↻| чтобы обновить список.", "Успех!");
+                }
+                else
+                {
+                    MessageBox.Show("Проверьте заполненость полей и правильность данных", "Ошибка");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Проверьте заполненость полей и правильность данных", "Ошибка");
+                MessageBox.Show(ex.Message, "Ошибка!");
             }
         }
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
